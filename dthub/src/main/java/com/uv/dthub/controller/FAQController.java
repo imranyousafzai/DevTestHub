@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.uv.dthub.model.User;
-import com.uv.dthub.service.UserService;
+import com.uv.dthub.model.FAQ;
+import com.uv.dthub.service.FAQService;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/faq")
+public class FAQController {
 
     @Autowired
-    private UserService userService;
+    private FAQService faqService;
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User createdUser = userService.createUser(user);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+    public ResponseEntity<FAQ> createdFAQ(@RequestBody FAQ faq) {
+    	FAQ createdFAQ = faqService.createFAQ(faq);
+        return new ResponseEntity<>(createdFAQ, HttpStatus.CREATED);
     }
      
 }

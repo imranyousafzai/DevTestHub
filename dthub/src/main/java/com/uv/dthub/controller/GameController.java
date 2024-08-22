@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.uv.dthub.model.User;
-import com.uv.dthub.service.UserService;
+import com.uv.dthub.model.Game;
+import com.uv.dthub.service.GameService;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/games")
+public class GameController {
 
     @Autowired
-    private UserService userService;
+    private GameService gamesService;
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User createdUser = userService.createUser(user);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+    public ResponseEntity<Game> createUser(@RequestBody Game games) {
+    	Game createdGame = gamesService.createGame(games);
+        return new ResponseEntity<>(createdGame, HttpStatus.CREATED);
     }
      
 }

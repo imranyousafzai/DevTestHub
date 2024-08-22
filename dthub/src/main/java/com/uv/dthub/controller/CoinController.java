@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.uv.dthub.model.User;
-import com.uv.dthub.service.UserService;
+import com.uv.dthub.model.Coin;
+import com.uv.dthub.service.CoinService;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/coins")
+public class CoinController {
 
     @Autowired
-    private UserService userService;
+    private CoinService coinService;
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User createdUser = userService.createUser(user);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+    public ResponseEntity<Coin> createCoin(@RequestBody Coin coin) {
+        Coin createdCoin = coinService.createCoin(coin);
+        return new ResponseEntity<>(createdCoin, HttpStatus.CREATED);
     }
      
 }
